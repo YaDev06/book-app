@@ -17,9 +17,6 @@ const Details = () => {
   let thumbnail = book.imageLinks && book.imageLinks.smallThumbnail;
 
 
-  
-  var targetDiv = document.getElementById("description");
-  targetDiv.appendChild(document.createTextNode(book.description));
   return (
     <div className="content">
       <button className="btn btn-primary goBack" onClick={goBack}>
@@ -47,7 +44,7 @@ const Details = () => {
           <p style={{ fontSize: "1.5rem" }}>
             The book has {book.pageCount} pages
           </p>
-          <div id='description'></div>
+          <div id='description'>{book.description}</div>
           <a className="btn btn-success mt-3" href={book.previewLink}>
             More
           </a>
