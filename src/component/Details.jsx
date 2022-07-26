@@ -15,6 +15,9 @@ const Details = () => {
     getById(id).then((data) => setBook(data.volumeInfo));
   }, [id]);
   let thumbnail = book.imageLinks && book.imageLinks.smallThumbnail;
+
+
+  
   var targetDiv = document.getElementById("description");
   targetDiv.appendChild(document.createTextNode(book.description));
   return (
