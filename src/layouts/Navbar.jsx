@@ -1,16 +1,13 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { MainContext } from "../reducer/context";
 import "../styles/index.css";
-const Navbar = (props) => {
-  const [search, setSearch] = useState("");
 
-  const changeBook = (e) => {
-    setSearch(e.target.value);
-  };
+const Navbar = (props) => {
+  const { search, changeBook } = useContext(MainContext);
 
   const clickDown = (e) => {
     if (e.key === "Enter") {
       props.searchBar(search);
-      setSearch("");
     }
   };
   return (

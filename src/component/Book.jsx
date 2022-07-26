@@ -1,11 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Book = ({ book }) => {
-  const getData = () => {
-    console.log(book.id);
-  };
-  // console.log(book.saleInfo.retailPrice.amount);
+const Book = ({book}) => {
+
   return (
     <div className="card text-center mt-5" style={{ width: "17rem" }}>
       <img
@@ -36,7 +33,6 @@ const Book = ({ book }) => {
           </a>
           <Link
             to={`/${book.id}`}
-            onClick={getData}
             className="btn btn-primary px-4"
           >
             Details

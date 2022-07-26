@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getById } from "../actions";
+import { MainContext } from "../reducer/context";
 
 const Details = () => {
   let navigate = useNavigate();
   const { id } = useParams();
-  const [book, setBook] = useState([]);
+  const {details, setDetails} = useContext(MainContext);
 
   const goBack = () => {
     navigate(-1);
   };
 
   useEffect(() => {
-    getById(id).then((data) => setBook(data.volumeInfo));
+    getById(id).then((data) => setDetails(data.volumeInfo));
   }, [id]);
-  let thumbnail = book.imageLinks && book.imageLinks.smallThumbnail;
-
+  let thumbnail = details.imageLinks && details.imageLinks.smallThumbnail;
 
   return (
     <div className="content">
@@ -32,20 +32,20 @@ const Details = () => {
         </div>
         <div className="col-lg-9 col-sm-6 mt-5 ">
           <div style={{ fontSize: "1.5rem" }} className="text-center mb-3">
-            <b>{book.title}</b>
+            <b>{details.title}</b>
           </div>
           <p style={{ fontSize: "1.5rem" }}>
-            Author(s): {!book.authors ? "unknown" : book.authors.join(", ")}
+            Author(s): {!details.authors ? "unknown" : details.authors.join(", ")}
           </p>
           <p style={{ fontSize: "1.5rem" }}>
-            Publisher: {book.publisher}
-            <span> published on {book.publishedDate}</span>
+            Publisher: {details.publisher}
+            <span> published on {details.publishedDate}</span>
           </p>
           <p style={{ fontSize: "1.5rem" }}>
-            The book has {book.pageCount} pages
+            The details has {details.pageCount} pages
           </p>
-          <div id='description'>{book.description}</div>
-          <a className="btn btn-success mt-3" href={book.previewLink}>
+          <div id='description'>{details.description}</div>
+          <a className="btn btn-success mt-3" href={details.previewLink}>
             More
           </a>
         </div>

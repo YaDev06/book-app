@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MainContext } from "../reducer/context";
 import BookList from "./BookList";
 import Error from "./Error/Error";
 
-const Content = ({ books }) => {
-  // console.log(books);
+const Content = () => {
+  const {books} = useContext(MainContext)
   if (!books) {
     return <Error />;
   }
   return (
     <div className="content container">
-      <BookList books={books} />
+      <BookList />
     </div>
   );
 };

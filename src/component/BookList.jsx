@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MainContext } from "../reducer/context";
 import Book from "./Book";
 import Loader from "./Loader/Loader";
 
-const BookList = ({ books }) => {
+const BookList = () => {
+  const {books} = useContext(MainContext);
   return (
     <>
       {books.length ? (
