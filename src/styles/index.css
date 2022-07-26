@@ -1,0 +1,18 @@
+.content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  min-height: 78vh;
+}
+body {
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+}
+
+.goBack {
+  position: fixed;
+  top: 5rem;
+  right: 2rem;
+}
+::placeholder{
+  color: #fff;
+}
