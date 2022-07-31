@@ -7,6 +7,7 @@ import Footer from "./layouts/Footer";
 import Details from "./component/Details";
 import Error from "./component/Error/Error";
 import { MainContext } from "./reducer/context";
+import LikedList from './component/LikedList';
 
 const App = () => {
 
@@ -25,10 +26,11 @@ const App = () => {
 
   return (
     <>
-      <Navbar searchBar={searchBar} />
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Content />} />
+        <Route path="/" element={<Content searchBar={searchBar} />} />
         <Route path="/:id" element={<Details />} />
+        <Route path="/liked" element={<LikedList />} />
         <Route path="/undefined" element={<Error />} />
       </Routes>
       <Footer />

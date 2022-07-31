@@ -8,11 +8,82 @@ body {
   background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
 }
 
+.icons {
+  position: absolute;
+  z-index: 10;
+  margin: 10px;
+  color: white;
+  margin: auto;
+  cursor: pointer;
+  display: none;
+  animation: show 0.5s ease-in-out;
+  width: 100%;
+  margin-top: 10px;
+}
+.add-to-cart:hover {
+  background-color: rgb(9, 123, 19);
+}
+.dflex {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+@keyframes show {
+  from {
+    top: -10%;
+    opacity: 0;
+  }
+  to {
+    top: 0%;
+    opacity: 1;
+  }
+}
+.card:hover .icons {
+  display: block;
+}
 .goBack {
   position: fixed;
+  z-index: 100;
   top: 5rem;
   right: 2rem;
 }
-::placeholder{
+::placeholder {
   color: #fff;
+}
+#modal-list {
+  background-image: linear-gradient(120deg, rgb(9, 123, 19) 0%, #00ff62 100%);
+  overflow-y: scroll;
+  min-width: 50%;
+  max-height: 70vh;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999999999;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+  animation: showModal 0.5s ease-in-out;
+}
+
+/*! mobile version  */
+@media (max-width: 768px) {
+  #modal-list {
+    min-width: 85%;
+    top: 40%;
+    min-height: 60vh;
+    overflow-y: scroll;
+  }
+}
+@keyframes showModal {
+  from {
+    top: 60%;
+    opacity: 0;
+  }
+  to {
+    top: 40%;
+    opacity: 1;
+  }
 }

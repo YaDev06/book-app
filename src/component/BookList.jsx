@@ -4,7 +4,7 @@ import Book from "./Book";
 import Loader from "./Loader/Loader";
 
 const BookList = () => {
-  const {books} = useContext(MainContext);
+  const { books } = useContext(MainContext);
   return (
     <>
       {books.length ? (
