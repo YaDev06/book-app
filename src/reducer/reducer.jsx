@@ -46,7 +46,6 @@ const reducer = (state, { type, payload }) => {
 
     case "SET_LIKED": {
       const index = state.liked.findIndex((e) => e.id === payload.id);
-      console.log(index);
       if (index < 0) {
         const newLiked = {
           ...payload,
@@ -57,19 +56,12 @@ const reducer = (state, { type, payload }) => {
           liked: [...state.liked, newLiked],
         };
       } else {
-        return {
-          ...state,
-          liked: state.liked.map((value, idx) => {
-            if (idx === index) {
-              return {
-                ...value,
-                liked: !value.liked,
-              };
-            } else {
-              return value;
-            }
-          }),
-        };
+        if (state.liked[index].liked) {
+          return {
+            ...state,
+            liked: state.liked.filter((e) => e.id !== payload.id),
+          };
+        }
       }
     }
 
